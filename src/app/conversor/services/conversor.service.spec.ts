@@ -1,11 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
+import { HttpModule } from '@angular/http';
 
 import { ConversorService } from './conversor.service';
 
 describe('ConversorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ConversorService]
+      providers: [ConversorService],
+      imports: [
+        HttpModule
+      ]
     });
   });
 

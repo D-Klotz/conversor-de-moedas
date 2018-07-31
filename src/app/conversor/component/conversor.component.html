@@ -52,4 +52,10 @@
 			[disabled]="!conversaoForm.form.valid">
 	  </form>
 	 </div>
+	 <app-modal-cotacao
+		[id]="'modalCotacao'"
+		[conversaoResponse]="conversaoResponse"
+		[conversao]="conversao"
+		(confirmation)="init()">
+	 </app-modal-cotacao>
 </div>

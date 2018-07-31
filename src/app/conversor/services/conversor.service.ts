@@ -4,12 +4,10 @@ import { Observable } from 'rxjs/Observable';
 
 import { Conversao, ConversaoResponse } from '../models';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ConversorService {
 
-  private readonly BASE_URL = 'http://api.fixer.io/latest';
+  private readonly BASE_URL = 'http://data.fixer.io/api/latest';
 
   constructor(private http: Http) { }
 
@@ -20,7 +18,8 @@ export class ConversorService {
    * @return Observable<ConversorResponse>
    */
   converter(conversao: Conversao): Observable<ConversaoResponse> {
-    const params = `base=${conversao.moedaDe}&symbol=${conversao.moedaPara}`;
+    const ACCESS_KEY = 'ef857a13e5e80b3459e9b18d9fd926e1';
+    const params = `?access_key=${ACCESS_KEY}&base=${conversao.moedaDe}&symbols=${conversao.moedaPara}`;
 
     return this.http
       .get(this.BASE_URL + params)

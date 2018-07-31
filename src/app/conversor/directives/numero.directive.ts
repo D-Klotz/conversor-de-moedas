@@ -16,7 +16,7 @@ export class NumeroDirective implements ControlValueAccessor {
   onChange: any;
   onTouched: any;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el?: ElementRef) { }
 
   @HostListener('keyup', ['$event'])
   onKeyUp($event: any) {
